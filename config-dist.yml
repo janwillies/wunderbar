@@ -1,0 +1,16 @@
+---
+# in seconds
+update_intervall: 2
+
+relayr:
+  token: 9dvwWfdGxkQO_6rnf8k29lS4.xisswCN
+  deviceid: 81112185-29cc-4a28-3163-29682e49faa0
+
+plotly:
+  user: joe
+  apikey: 1b6s0k3lxd
+  stream_ids:
+    - dxc2rcauh4
+    - ncxcmbbib3
+    - zabqtlx6ud
+    - 8alman4g7x

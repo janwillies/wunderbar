@@ -1,0 +1,27 @@
+--- dataconnection.py
++++ dataconnection-relayr.py
+@@ -10,6 +10,8 @@
+ import time
+ import threading
+ import platform
++import os
++import certifi
+ from os.path import exists, join, expanduser, basename
+
+ import requests
+@@ -146,14 +148,13 @@
+         c.username_pw_set(creds['user'], creds['password'])
+
+         # only encryption, no authentication
+-        c.tls_insecure_set(True)
+         folder = expanduser(config.RELAYR_FOLDER)
+         cert_url = config.MQTT_CERT_URL
+         cert_filename = basename(cert_url)
+         if not exists(join(folder, cert_filename)):
+             self._fetch_certificate()
+         cert_path = join(folder, cert_filename)
+-        c.tls_set(ca_certs=cert_path)
++        c.tls_set(certifi.where(), tls_version=ssl.PROTOCOL_TLSv1)
+
+         try:
+             c.connect('mqtt.relayr.io', port=8883, keepalive=60)

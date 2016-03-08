@@ -1,0 +1,11 @@
+--- dataconnection.py
++++ dataconnection-python3.py
+@@ -132,7 +132,7 @@
+             resp = requests.get(cert_url)
+             if resp.status_code == 200:
+                 cert = resp.content
+-                open(join(folder, cert_filename), 'w').write(cert)
++                open(join(folder, cert_filename), 'wb').write(cert)
+
+     def run(self):
+         """
